@@ -17,7 +17,7 @@ body {
     height: auto;
     width: 100vw;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 /* Sidebar */
@@ -265,11 +265,6 @@ header {
     .note {
         padding: 10px;
         font-size: 14px;
-    }
-    header {
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
     }
     #searchBar {
         width: 70%;
