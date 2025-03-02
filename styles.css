@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mona Sans', sans-serif;
+}
+
+body {
+    transition: background 0.3s, color 0.3s;
+    color: #000;
+    display: flex;
+    background: white;
+}
+.container{
+    height: auto;
+    width: 100vw;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    min-height: 100vh;
+    border-right: 2px solid #ccc;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i{
+    cursor: pointer;
+    font-size: 65px;
+}
+
+#colorPicker {
+    margin-top: 20px;
+}
+
+.color-option {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+}
+.one{background-color: #FFA07A;}
+.two{background-color: #FFD700;}
+.three{background-color: #98FB98;}
+.four{background-color: #87CEFA;}
+.five{background-color: #DDA0DD;}
+
+/* Main Section */
+main {
+    flex: 1;
+    padding: 5px 20px;
+}
+
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#searchBar {
+    padding: 10px;
+    width: 400px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+}
+
+/* Notes Styling */
+#notesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-top: 23px;
+}
+.note {
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: black;
+    transition: transform 0.2s;
+    word-wrap: break-word; /* Ensures text wraps within the note */
+    overflow: hidden; /* Prevents overflow */
+    text-overflow: ellipsis; /* Adds "..." when text overflows */
+    white-space: normal; 
+    position: relative;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+.note p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Show only 4 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.note:hover .note-icons {
+    opacity: 1;
+}
+
+/* Small screen: Always show icons */
+@media (max-width: 768px) {
+    .note-icons {
+        opacity: 1;
+    }
+}
+
+/* Pin & Delete Icons */
+.pin-icon,
+.delete-icon {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: rgb(70, 70, 70);
+}
+
+.pin-icon:hover, .delete-icon:hover {
+    color: black;
+}
+
+/* Pinned Notes */
+.pinned {
+    border: 2px solid gold;
+}
+
+.jj{
+    margin-top: 90px;
+}
+
+.note:hover .edit-btn {
+    display: block;
+}
+
+.edit-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+/* Popup */
+.hidden {
+    display: none;
+}
+
+
+/* Dark Theme */
+.dark-mode {
+    background: #121212;
+    color: #fff;
+}
+
+/* Notes in Dark Mode */
+.dark-mode .note {
+    color: white;
+}
+.dark-mode #searchBar{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    color: white;
+}
+
+/* Theme Toggle Button */
+#themeToggle {
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content input,
+.modal-content textarea {
+    background: #ffffff9a;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px;
+}
+.modal-content textarea {
+    height: 35vh;
+    padding: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#saveNote {
+    border-radius: 5px;
+    background: green;
+    color: white;
+}
+
+#closeModal {
+    border-radius: 5px;
+    background: red;
+    color: white;
+}
+
+.ss{
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.edit-note{
+    cursor: pointer;
+    font-size: 20px;
+}
+.pinned {
+    border: 2px solid blue !important; /* Optional - change color as needed */
+}
+
+.pin-icon.active {
+    color: blue; /* Highlighted color for pinned notes */
+}

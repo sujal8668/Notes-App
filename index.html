@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/3cf4dc97bbdce14d1592f4cd615b127d.jpg" type="image/x-icon">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h1 style="font-size: 1.2rem; margin-bottom: 25px; font-weight: 900;">DOCKER</h1>
+            <i id="addNoteBtn" class="ri-add-circle-fill"></i>
+            <div id="colorPicker" class="hidden">
+                <span class="color-option one" data-color="#FFA07A"></span>
+                <span class="color-option two" data-color="#FFD700"></span>
+                <span class="color-option three" data-color="#98FB98"></span>
+                <span class="color-option four" data-color="#87CEFA"></span>
+                <span class="color-option five" data-color="#DDA0DD"></span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <header>
+                <input type="text" id="searchBar" placeholder="Search notes...">
+                <button id="themeToggle">🌙</button>
+            </header>
+            <h1 style="margin-left: 20px;">Notes</h1>
+            <div id="notesContainer"></div>
+        </main>
+    </div>
+
+        <!-- Pop-up Modal -->
+        <div id="noteModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Create Note</h2>
+                <input type="text" id="noteTitle" placeholder="Enter Title">
+                <textarea id="noteContent" placeholder="Enter Subheading"></textarea>
+                <div class="modal-buttons">
+                    <button id="saveNote">Save</button>
+                    <button id="closeModal">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
