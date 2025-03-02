@@ -13,10 +13,11 @@ body {
     display: flex;
     background: white;
 }
-.container{
+.container {
     height: auto;
     width: 100vw;
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* Sidebar */
@@ -27,9 +28,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: width 0.3s;
 }
 
-i{
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+        padding: 20px 10px;
+    }
+    .sidebar i {
+        font-size: 40px;
+    }
+    .color-option {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+i {
     cursor: pointer;
     font-size: 65px;
 }
@@ -46,16 +62,18 @@ i{
     margin: 5px;
     cursor: pointer;
 }
-.one{background-color: #FFA07A;}
-.two{background-color: #FFD700;}
-.three{background-color: #98FB98;}
-.four{background-color: #87CEFA;}
-.five{background-color: #DDA0DD;}
+
+.one { background-color: #FFA07A; }
+.two { background-color: #FFD700; }
+.three { background-color: #98FB98; }
+.four { background-color: #87CEFA; }
+.five { background-color: #DDA0DD; }
 
 /* Main Section */
 main {
     flex: 1;
     padding: 5px 20px;
+    width: 100%;
 }
 
 header {
@@ -63,12 +81,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
-
 
 #searchBar {
     padding: 10px;
-    width: 400px;
+    width: 50%;
     border: none;
     outline: none;
     border-bottom: 2px solid #ccc;
@@ -77,28 +95,30 @@ header {
 /* Notes Styling */
 #notesContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 15px;
     margin-top: 23px;
 }
+
 .note {
     padding: 15px 25px;
     border-radius: 10px;
     color: black;
     transition: transform 0.2s;
-    word-wrap: break-word; /* Ensures text wraps within the note */
-    overflow: hidden; /* Prevents overflow */
-    text-overflow: ellipsis; /* Adds "..." when text overflows */
-    white-space: normal; 
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
     position: relative;
     padding: 15px;
     margin: 10px;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
 }
+
 .note p {
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* Show only 4 lines */
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -118,7 +138,6 @@ header {
     opacity: 1;
 }
 
-/* Small screen: Always show icons */
 @media (max-width: 768px) {
     .note-icons {
         opacity: 1;
@@ -142,31 +161,10 @@ header {
     border: 2px solid gold;
 }
 
-.jj{
-    margin-top: 90px;
-}
-
-.note:hover .edit-btn {
-    display: block;
-}
-
-.edit-btn {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    background: black;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    display: none;
-    cursor: pointer;
-}
-
 /* Popup */
 .hidden {
     display: none;
 }
-
 
 /* Dark Theme */
 .dark-mode {
@@ -174,11 +172,11 @@ header {
     color: #fff;
 }
 
-/* Notes in Dark Mode */
 .dark-mode .note {
     color: white;
 }
-.dark-mode #searchBar{
+
+.dark-mode #searchBar {
     border: none;
     background: transparent;
     border-bottom: 1px solid #ccc;
@@ -194,8 +192,6 @@ header {
     cursor: pointer;
     margin-left: 10px;
 }
-
-
 
 /* Modal */
 .modal {
@@ -217,7 +213,8 @@ header {
 .modal-content {
     background-color: white;
     padding: 20px;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     border-radius: 10px;
     text-align: center;
 }
@@ -232,6 +229,7 @@ header {
     outline: none;
     border-radius: 5px;
 }
+
 .modal-content textarea {
     height: 35vh;
     padding: 20px;
@@ -258,6 +256,24 @@ header {
     border-radius: 5px;
     background: red;
     color: white;
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+    }
+    .note {
+        padding: 10px;
+        font-size: 14px;
+    }
+    header {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+    }
+    #searchBar {
+        width: 70%;
+    }
 }
 
 .ss{
